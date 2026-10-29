@@ -1,6 +1,6 @@
 # Epilepsy Seizure Detection Prototype (OmniNeuro + memristive cellular automaton)
 
-**Built with Claude.** All code in this repository was written by Claude (Anthropic) from my own research idea document. I chose the research question, directed the design, ran every test on my own computer, downloaded the data, and recorded the results. I do not claim to understand every line of the code.
+**Built with Claude.** All code in this repository was written by Claude (Anthropic) from my own research idea document. I chose the research question, directed the design, ran every test on my own computer, downloaded the data, and recorded the results. I do not claim to understand every line of the code, but I am actively working on it.
 
 **This is a research prototype, not a medical device. It must not be used for any medical or clinical decision.**
 
