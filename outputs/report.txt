@@ -1,0 +1,6 @@
+OMNINEURO FEEDBACK REPORT (decision support - requires clinician verification)
+Window starting at t = 542 s     State: SEIZURE-LIKE
+  Physics  : energy +50.0 z vs baseline;  Lidx = -1.36 (left hemisphere has more energy)
+  Chaos    : complexity (HFD) 1.10, +10.8 z (DROP);  dHFD = -0.001
+  Quantum  : P_move = 0.95;  hemispheric phase coherence = 1.00
+Interpretation: energy is above this patient's own baseline while signal complexity is below it, and the pattern persisted across windows. This is compatible with rhythmic (possibly ictal) activity. It is NOT a diagnosis.

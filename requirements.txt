@@ -1,0 +1,7 @@
+numpy
+scipy
+matplotlib
+# optional:
+# mne           (standard EDF reader; the built-in reader is used if it is missing)
+# google-genai  (only for the optional Gemini report; set GEMINI_API_KEY)
+# pytest        (tests also run without it: python tests/run_tests.py)
