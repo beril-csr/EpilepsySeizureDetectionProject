@@ -1,3 +1,38 @@
+# Epilepsy Seizure Detection Prototype (OmniNeuro + memristive cellular automaton)
+
+**Built with Claude.** All code in this repository was written by Claude (Anthropic) from my own research idea document. I chose the research question, directed the design, ran every test on my own computer, downloaded the data, and recorded the results. I do not claim to understand every line of the code.
+
+**This is a research prototype, not a medical device. It must not be used for any medical or clinical decision.**
+
+## The idea
+Combine OmniNeuro's explainable EEG engines (signal energy, Higuchi fractal dimension as a measure of signal complexity, and a quantum-inspired probability state) with a memristive cellular-automaton model of epileptic activity. Hypothesis: during a seizure, energy goes up and complexity goes down.
+
+## What I did
+1. Wrote the idea document, then had Claude build the pipeline from it.
+2. Tested it on synthetic EEG (25 automated tests pass).
+3. Ran it on real recordings from patient chb01 of the CHB-MIT Scalp EEG Database (PhysioNet), using two channels (F3-C3, F4-C4).
+4. Compared the energy engine, the complexity engine and both fused, using AUC.
+5. Wrote the final test plan down before running it, then ran two designs once on seizure files nobody had looked at.
+
+## Results (one patient, very small sample)
+- The energy rise separated seizure windows from normal windows well (AUC 0.92-1.00 on the files I examined).
+- The complexity drop was weak and inconsistent (AUC 0.51-0.77), so the hypothesis is only half supported.
+- Final test on 3 untouched seizures: the original two-engine design detected 0 of 3. Energy alone detected 2 of 3, with 4 short false-alarm episodes in 3.3 hours.
+- Three seizures from one patient cannot show that this works in general.
+
+Full details, mistakes and limitations: `docs/HONEST_LIMITS.md`.
+
+## Run it
+    pip install -r requirements.txt
+    python -m omnineuro demo
+    python tests/run_tests.py
+
+## Credits
+OmniNeuro framework (Ayda Aghaei Nia); memristive cellular-automaton model of epilepsy (Karamani et al.); data: CHB-MIT Scalp EEG Database, PhysioNet (Shoeb, 2009). The data are not included in this repository.
+
+
+
+
 # OmniNeuro → memristive Cellular Automaton
 
 EEG → three explainable "engines" (Physics, Chaos, Quantum-inspired) → safety protocol → a two-grid
@@ -13,7 +48,7 @@ rejected; the muscle burst at 350 s is ignored because only one engine reacts.)*
 ```
 pip install numpy scipy matplotlib
 python -m omnineuro demo                  # synthetic EEG, writes ./outputs/
-python tests/run_tests.py                 # 20 checks
+python tests/run_tests.py                 # 25 checks
 python scripts/ablation.py                # does each component help? (synthetic)
 python -m omnineuro run data/chb01_03.edf --summary data/chb01-summary.txt     # real CHB-MIT file
 ```
